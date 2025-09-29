@@ -1,10 +1,11 @@
 plugins {
     id("groovy")
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    // id("com.github.johnrengelman.shadow") version "8.1.1"
+    //id("io.micronaut.library") version "4.4.5"
 
-    id("io.micronaut.library") version "4.4.5"
+    id("io.micronaut.library") version "4.5.4"
     id("io.micronaut.aot") version "4.4.5"
-
+    id("com.gradleup.shadow") version "8.3.6"
     id("maven-publish")
 }
 
@@ -17,7 +18,7 @@ repositories {
     mavenCentral()
 
     // TODO: Uncomment this line to depend on snapshot versions of Mauro
-    // maven {url "https://mauro-repository.com/libs-snapshot-local"}
+    maven {url = "https://mauro-repository.com/libs-snapshot-local"}
 }
 
 dependencies {
@@ -31,6 +32,11 @@ dependencies {
 
     // Change this to depend on a different version of Mauro
     implementation('org.maurodata:mauro-domain:0.0.1-beta')
+
+    // POI
+
+    implementation("org.apache.poi:poi:5.4.1")
+    implementation("org.apache.poi:poi-ooxml:5.4.1")
 }
 
 micronaut {
