@@ -31,7 +31,7 @@ dependencies {
     runtimeOnly("org.yaml:snakeyaml")
 
     // Change this to depend on a different version of Mauro
-    implementation('org.maurodata:mauro-domain:0.0.1-beta')
+    implementation('org.maurodata:mauro-domain:0.0.1-SNAPSHOT')
 
     // POI
 
