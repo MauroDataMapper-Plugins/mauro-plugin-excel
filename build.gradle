@@ -1,8 +1,5 @@
 plugins {
     id("groovy")
-    // id("com.github.johnrengelman.shadow") version "8.1.1"
-    //id("io.micronaut.library") version "4.4.5"
-
     id("io.micronaut.library") version "4.6.1"
     id("io.micronaut.aot") version "4.6.1"
     id("com.gradleup.shadow") version "8.3.6"
@@ -68,17 +65,24 @@ java {
 }
 
 // TODO: Uncomment this to publish to the Mauro Snapshot Repository
-/*
-publishing {
-    repositories {
-        maven {
-            name = "MauroSnapshotRepository"
-            url = "https://mauro-repository.com/libs-snapshot-local"
-            credentials(PasswordCredentials)
-            authentication {
-                basic(BasicAuthentication)
+
+plugins.withId("maven-publish") {
+    publishing {
+        publications {
+            create(MavenPublication) {
+                from(components["java"])
+            }
+        }
+
+        repositories {
+            maven {
+                name = "MauroSnapshotRepository"
+                url = "https://mauro-repository.com/libs-snapshot-local"
+                credentials(PasswordCredentials)
+                authentication {
+                    basic(BasicAuthentication)
+                }
             }
         }
     }
 }
-*/
