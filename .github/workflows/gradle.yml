@@ -41,7 +41,7 @@ jobs:
 
             - name: Send a stream message
               if: success() || failure()
-              uses: zulip/github-actions-zulip/send-message@v1
+              uses: zulip/github-actions-zulip/send-message@v2
               with:
                 api-key: ${{ secrets.ZULIP_API_KEY }}
                 email: "githubactionsbot-bot@maurodatamapper.zulipchat.com"
